@@ -1,0 +1,67 @@
+[
+  {
+    "pergunta": "Quantos dias de férias eu tenho por ano?",
+    "documentoEsperado": "Manual de RH",
+    "palavrasEsperadas": ["30"]
+  },
+  {
+    "pergunta": "Posso dividir minhas férias em quantas partes?",
+    "documentoEsperado": "Manual de RH",
+    "palavrasEsperadas": ["três"]
+  },
+  {
+    "pergunta": "Com quanto tempo de antecedência preciso pedir férias?",
+    "documentoEsperado": "Manual de RH",
+    "palavrasEsperadas": ["45"]
+  },
+  {
+    "pergunta": "Qual o valor da ajuda de custo para quem trabalha de casa?",
+    "documentoEsperado": "Manual de RH",
+    "palavrasEsperadas": ["150"]
+  },
+  {
+    "pergunta": "Quanto a empresa reembolsa da faculdade?",
+    "documentoEsperado": "Manual de RH",
+    "palavrasEsperadas": ["50%"]
+  },
+  {
+    "pergunta": "Qual o tamanho mínimo de uma senha?",
+    "documentoEsperado": "Política de TI",
+    "palavrasEsperadas": ["12"]
+  },
+  {
+    "pergunta": "De quanto em quanto tempo tenho que trocar a senha?",
+    "documentoEsperado": "Política de TI",
+    "palavrasEsperadas": ["90"]
+  },
+  {
+    "pergunta": "Perdi meu notebook, o que eu faço?",
+    "documentoEsperado": "Política de TI",
+    "palavrasEsperadas": ["4000"]
+  },
+  {
+    "pergunta": "Qual o prazo para resolverem um chamado urgente?",
+    "documentoEsperado": "Política de TI",
+    "palavrasEsperadas": ["4 horas"]
+  },
+  {
+    "pergunta": "Quanto tempo dura o período de experiência?",
+    "documentoEsperado": "Guia de Onboarding",
+    "palavrasEsperadas": ["90"]
+  },
+  {
+    "pergunta": "Quais treinamentos são obrigatórios para quem acabou de entrar?",
+    "documentoEsperado": "Guia de Onboarding",
+    "palavrasEsperadas": ["LGPD"]
+  },
+  {
+    "pergunta": "Qual é a capital da Austrália?",
+    "documentoEsperado": null,
+    "palavrasEsperadas": []
+  },
+  {
+    "pergunta": "A empresa paga participação nos lucros?",
+    "documentoEsperado": null,
+    "palavrasEsperadas": []
+  }
+]

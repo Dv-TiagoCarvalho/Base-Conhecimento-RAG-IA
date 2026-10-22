@@ -1,0 +1,109 @@
+:root {
+    --fundo: #f5f5f2;
+    --cartao: #ffffff;
+    --texto: #1d1d1b;
+    --suave: #6b6b66;
+    --borda: #dcdcd6;
+    --destaque: #1f5c4a;
+    --erro: #b3261e;
+    --ok: #2e7d32;
+    --aviso: #a15c00;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fundo: #161615;
+        --cartao: #212120;
+        --texto: #ecece8;
+        --suave: #a3a39c;
+        --borda: #3a3a37;
+        --destaque: #6cc3a6;
+        --erro: #f2867f;
+        --ok: #81c784;
+        --aviso: #f0b45b;
+    }
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.5;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+h1 { font-size: 1.3rem; margin: 0; }
+h2 { font-size: 1.1rem; margin-top: 0; }
+h3 { font-size: 0.95rem; margin-bottom: 4px; color: var(--suave); }
+
+main { max-width: 860px; margin: 0 auto; padding: 0 16px 40px; }
+
+.cartao {
+    background: var(--cartao);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px; }
+#form-envio { flex-direction: row; flex-wrap: wrap; align-items: center; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; }
+
+input, textarea, button {
+    font: inherit;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--borda);
+    background: var(--cartao);
+    color: var(--texto);
+}
+
+button {
+    background: var(--destaque);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+}
+button.secundario { background: transparent; color: var(--texto); border: 1px solid var(--borda); }
+button:disabled { opacity: 0.6; cursor: wait; }
+
+details { margin-top: 12px; }
+summary { cursor: pointer; color: var(--destaque); }
+
+.erro { color: var(--erro); min-height: 1em; margin: 4px 0 0; }
+
+#resposta { border-top: 1px solid var(--borda); padding-top: 12px; margin-top: 8px; }
+#resposta-texto { white-space: pre-wrap; }
+.etiqueta { font-size: 0.8rem; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; }
+.COMPLETA { color: var(--ok); }
+.SOMENTE_TRECHOS { color: var(--aviso); }
+.SEM_CONTEXTO { color: var(--suave); }
+
+.citacao { color: var(--destaque); font-weight: 600; text-decoration: none; }
+#fontes li { margin-bottom: 10px; font-size: 0.9rem; }
+#fontes li.citada { border-left: 3px solid var(--destaque); padding-left: 8px; }
+#fontes .meta { color: var(--suave); font-size: 0.8rem; }
+#fontes blockquote { margin: 4px 0 0; color: var(--suave); white-space: pre-wrap; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid var(--borda); }
+td.PRONTO { color: var(--ok); }
+td.FALHOU { color: var(--erro); }
+td.PENDENTE, td.PROCESSANDO { color: var(--aviso); }
+
+@media (max-width: 600px) {
+    th:nth-child(3), td:nth-child(3) { display: none; }
+}

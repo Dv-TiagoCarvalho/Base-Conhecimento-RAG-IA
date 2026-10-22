@@ -1,0 +1,83 @@
+spring:
+  application:
+    name: base-conhecimento-rag
+  threads:
+    virtual:
+      enabled: true
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/conhecimento}
+    username: ${DB_USUARIO:conhecimento}
+    password: ${DB_SENHA:conhecimento}
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none   # o esquema é controlado pelo Flyway (src/main/resources/db/migration)
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORTA:5672}
+    username: ${RABBITMQ_USUARIO:guest}
+    password: ${RABBITMQ_SENHA:guest}
+
+  ai:
+    model:
+      chat: ${IA_PROVEDOR:ollama}   # quem responde: "ollama" (local, grátis) ou "anthropic" (Claude, pago)
+      embedding: ollama             # quem gera os embeddings: sempre o Ollama (local, grátis)
+    anthropic:
+      api-key: ${ANTHROPIC_API_KEY:}
+      chat:
+        options:
+          model: ${ANTHROPIC_MODELO:claude-haiku-5-5}
+          max-tokens: 800
+          temperature: 0.2
+    ollama:
+      base-url: ${OLLAMA_URL:http://localhost:11434}
+      chat:
+        options:
+          model: ${OLLAMA_MODELO_CHAT:qwen2.5:3b}
+          temperature: 0.2
+      embedding:
+        options:
+          model: nomic-embed-text
+    retry:
+      max-attempts: 2
+
+app:
+  jwt:
+    segredo: ${JWT_SEGREDO:troque-este-segredo-em-producao-ele-precisa-ter-32-ou-mais-caracteres}
+    expiracao-minutos: 120
+  admin:
+    nome: Administrador
+    email: ${ADMIN_EMAIL:}
+    senha: ${ADMIN_SENHA:}
+  rag:
+    top-k: 4
+    similaridade-minima: 0.5
+    dimensoes: 768          # nomic-embed-text gera vetores de 768 posições (precisa bater com a migração)
+    tamanho-trecho: 800
+    sobreposicao: 150
+  limite:
+    perguntas-por-minuto: 10
+  cache:
+    ttl-minutos: 10
+    maximo-entradas: 500
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: never
+
+logging:
+  level:
+    br.com.tiagocarvalho: INFO

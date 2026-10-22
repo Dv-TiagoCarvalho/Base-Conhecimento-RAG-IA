@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Base de Conhecimento</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header>
+    <h1>Base de Conhecimento</h1>
+    <div id="sessao" hidden>
+        <span id="quem"></span>
+        <button id="sair" class="secundario">Sair</button>
+    </div>
+</header>
+
+<main>
+    <!-- Login / cadastro -->
+    <section id="tela-entrada" class="cartao">
+        <h2>Entrar</h2>
+        <form id="form-entrar">
+            <label>E-mail <input type="email" name="email" required></label>
+            <label>Senha <input type="password" name="senha" required></label>
+            <button type="submit">Entrar</button>
+        </form>
+        <details>
+            <summary>Criar uma conta</summary>
+            <form id="form-registrar">
+                <label>Nome <input name="nome" required maxlength="100"></label>
+                <label>E-mail <input type="email" name="email" required></label>
+                <label>Senha (mín. 8) <input type="password" name="senha" required minlength="8"></label>
+                <button type="submit">Criar conta</button>
+            </form>
+        </details>
+        <p id="erro-entrada" class="erro"></p>
+    </section>
+
+    <!-- Área logada -->
+    <section id="tela-app" hidden>
+        <div class="cartao">
+            <h2>Pergunte</h2>
+            <form id="form-pergunta">
+                <textarea name="pergunta" rows="3" maxlength="1000" required
+                          placeholder="Ex.: Quantos dias de férias eu tenho por ano?"></textarea>
+                <button type="submit">Perguntar</button>
+            </form>
+            <div id="resposta" hidden>
+                <div id="resposta-cabecalho"></div>
+                <p id="resposta-texto"></p>
+                <h3>Fontes</h3>
+                <ol id="fontes"></ol>
+            </div>
+            <p id="erro-pergunta" class="erro"></p>
+        </div>
+
+        <div class="cartao">
+            <h2>Documentos</h2>
+            <form id="form-envio" hidden>
+                <input type="file" name="arquivo" accept=".pdf,.md,.txt" required>
+                <input name="titulo" placeholder="Título (opcional)" maxlength="200">
+                <button type="submit">Enviar</button>
+            </form>
+            <p id="erro-envio" class="erro"></p>
+            <table>
+                <thead><tr><th>Título</th><th>Status</th><th>Trechos</th><th></th></tr></thead>
+                <tbody id="lista-documentos"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

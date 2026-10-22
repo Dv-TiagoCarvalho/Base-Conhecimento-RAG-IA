@@ -1,0 +1,16 @@
+spring:
+  ai:
+    anthropic:
+      api-key: chave-falsa-para-testes   # nos testes o Claude é substituído por ModeloFalso
+
+app:
+  jwt:
+    segredo: segredo-de-teste-com-mais-de-32-caracteres-ok
+  admin:
+    email: admin@teste.com
+    senha: senha-do-admin-123
+  rag:
+    # O gerador de embeddings falso é mais "grosseiro" que o real, por isso o limite é menor
+    similaridade-minima: 0.25
+  limite:
+    perguntas-por-minuto: 1000

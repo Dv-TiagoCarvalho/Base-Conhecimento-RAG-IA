@@ -1,0 +1,8 @@
+# Perfil usado só para rodar o conjunto de avaliação (veja avaliacao/README.md).
+# Sobe em uma porta aleatória para não conflitar com a aplicação principal.
+server:
+  port: 0
+
+app:
+  avaliacao:
+    arquivo: avaliacao/perguntas.json
